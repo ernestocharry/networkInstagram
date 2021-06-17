@@ -62,3 +62,18 @@ for seed in ['seed_1', 'seed_2', 'seed_3', 'seed_4']:
             DG.nodes[j][i] = seed_dic[seed][j][i]
 
 print(data)
+
+plt.figure(figsize=(20, 10))
+
+node_color = [DG.degree(v) for v in DG]
+node_size = [0.0005*nx.get_node_attributes(DG, 'nofollowers')[v] for v in DG]
+#edge_width = [0.0015*DG[u][v]['nofollowees'] for u,v in DG.edges()]
+
+pos = nx.circular_layout(DG)
+nx.draw_networkx(DG, pos, node_size=node_size,
+                 node_color=node_color, alpha=0.7, with_labels=False, edge_color='.4', cmap=plt.cm.Blues)
+
+plt.axis('off')
+plt.tight_layout()
+plt.show(block=False)
+plt.show()
