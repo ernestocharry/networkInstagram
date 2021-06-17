@@ -12,3 +12,7 @@ Félix Ernesto Charry Pastrana - charrypastranaernesto@gmail.com
 ### import networkx as nx
 ***
 ⌨️ with ❤️! 📌
+<p align="center">
+  <img src="testplot.png" width="250" title="1 ">
+  <img src="testplot_2.png" width="250" title="2 ">
+</p>
