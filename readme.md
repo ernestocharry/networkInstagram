@@ -1,4 +1,4 @@
-# Social Network Analysis: Instagram
+# Social Network Analysis: Instagram (in progress)
 Félix Ernesto Charry Pastrana - charrypastranaernesto@gmail.com
 ## _Question_: given an input Instagram account, what is the **network associated with it** and what are the **central accounts**?
 ### Context: 
