@@ -20,6 +20,8 @@ red_total_count = len(all_red_users)
 data = pd.DataFrame(columns=['seed', 'account', 'similar_in_followees', 'similar_in_red', 'red_in_followees',
                              'bussines', 'category', 'nofollowees', 'nofollowers', 'noposts', 'private', 'verified'])
 
+DG = nx.DiGraph()
+
 for seed in ['seed_1', 'seed_2', 'seed_3', 'seed_4']:
     for count in list(seed_dic[seed].keys()):
         similares_followees_count = 0
@@ -49,5 +51,14 @@ for seed in ['seed_1', 'seed_2', 'seed_3', 'seed_4']:
                             'verified': seed_dic[seed][count]['verified']
                             },
                            ignore_index=True)
+
+    for user_red in all_red_users:
+        for user_seed_2 in list(seed_dic[seed].keys()):
+            if user_red in seed_dic[seed][user_seed_2]['similares']:
+                DG.add_edges_from([(user_seed_2, user_red)])
+
+    for i in ['bussines', 'category', 'nofollowees', 'nofollowers', 'noposts', 'private', 'verified']:
+        for j in list(seed_dic[seed].keys()):
+            DG.nodes[j][i] = seed_dic[seed][j][i]
 
 print(data)
