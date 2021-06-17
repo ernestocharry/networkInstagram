@@ -61,8 +61,30 @@ for seed in ['seed_1', 'seed_2', 'seed_3', 'seed_4']:
         for j in list(seed_dic[seed].keys()):
             DG.nodes[j][i] = seed_dic[seed][j][i]
 
+data['clustering'] = ""
+data['centrality'] = ""
+data['degree_centrality'] = ""
+data['betweenness_centrality'] = ""
+data['degree'] = ""
+
+clust = nx.clustering(DG)
+centr = nx.degree_centrality(DG)
+eigcentral = nx.eigenvector_centrality(DG)
+betcentral = nx.betweenness_centrality(DG)
+degree = nx.degree(DG)
+
+for keys_clustering in clust.keys():
+    data.loc[data['account'] == keys_clustering, 'clustering'] = clust[keys_clustering]
+    data.loc[data['account'] == keys_clustering, 'centrality'] = centr[keys_clustering]
+    data.loc[data['account'] == keys_clustering, 'degree_centrality'] = eigcentral[keys_clustering]
+    data.loc[data['account'] == keys_clustering, 'betweenness_centrality'] = betcentral[keys_clustering]
+    data.loc[data['account'] == keys_clustering, 'degree'] = degree[keys_clustering]
+
+data['nofollowers_nofollowees'] = (data['nofollowers']-data['nofollowees'])/(data['nofollowers']+data['nofollowees'])
+
 print(data)
 
+'''
 plt.figure(figsize=(20, 10))
 
 node_color = [DG.degree(v) for v in DG]
@@ -77,3 +99,4 @@ plt.axis('off')
 plt.tight_layout()
 plt.show(block=False)
 plt.show()
+'''
