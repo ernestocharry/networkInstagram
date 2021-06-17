@@ -82,8 +82,16 @@ for keys_clustering in clust.keys():
 
 data['nofollowers_nofollowees'] = (data['nofollowers']-data['nofollowees'])/(data['nofollowers']+data['nofollowees'])
 
-print(data)
+# Select some columns using a criteria
+data[((data['category'].isna()) | (data['category'] == 'Creators & Celebrities'))
+     & (data['betweenness_centrality'] != 0)
+     & (data['centrality'] > 0.28)].sort_values(by=['betweenness_centrality'], ascending=False)
 
+new_red_users = list(data[((data['category'].isna()) | (data['category'] == 'Creators & Celebrities'))
+     & (data['betweenness_centrality'] != 0)
+     & (data['centrality'] > 0.28)])
+print(data)
+print(len(new_red_users))
 '''
 plt.figure(figsize=(20, 10))
 
