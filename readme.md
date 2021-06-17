@@ -1,5 +1,5 @@
 # Social Network Analysis: Instagram
-F�lix Ernesto Charry Pastrana - charrypastranaernesto@gmail.com
+Félix Ernesto Charry Pastrana - charrypastranaernesto@gmail.com
 ## _Question_: given an input Instagram account, what is the **network associated with it** and what are the **central accounts**?
 ### Context: 
 1. Accounts of influencers (followers >> followees)
@@ -11,4 +11,4 @@ F�lix Ernesto Charry Pastrana - charrypastranaernesto@gmail.com
 - Find similar accounts of most network-related account in the filter result (seed_2)
 ### import networkx as nx
 ***
-?? with ??! ?
+⌨️ with ❤️! 📌
